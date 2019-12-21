@@ -15,13 +15,22 @@
 
     * class is a reserved keyword in JavaScript
     * should use className when naming a div tag
-  -->
+ -->
 
 <!--To change the state of dynamic content of the example below:
     * state has been defined within the component as an JS object with property values
     * we use the component to output the template by the use of the 'this' keyword
     * along with the state and the object property name to
-    * print to the browser -->
+    * print to the browser 
+-->
+
+<!--To create a function within the component:
+    * declare the function by name only before the render output along with any parameters
+    * to call and output the function use the 'this' keyword with dot notation of the function name declaration
+     i.e. handleClick(e) = this.handleMouse
+    * this is particulary useful when we want to use an DOM event using
+    * using event listener properties like onClick and onMouseOver
+-->
 
 <body>
 
@@ -33,11 +42,25 @@
             name: 'Cat',
             age: 31
         }
+
+        handleClick(e) {
+            console.log(e.target);
+        }
+        handleMouse(e) {
+            console.log(e);
+        }
+
+        handleCopy(e) {
+            console.log('Try being original for once!');
+        }
       render() {
         return (
           <div className="app-content">
             <h1>Hey, Cat!</h1>
-            <p>My name is: { this.state.name } and I am { this.state.age } </p>
+            <p>My name is: { this.state.name } and I am { this.state.age }</p>
+            <button onClick={this.handleClick}>Click Me</button>
+            <button onMouseOver={this.handleMouse}>Hover</button>
+            <p onCopy={this.handleCopy}>What we think, we become</p>
           </div>
         )
       }
