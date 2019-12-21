@@ -1,13 +1,14 @@
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>React Basics</title>
-  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-  <!--added babel cdn for output to the browser version 7-->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Basics</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!--added babel cdn for output to the browser version 7-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <!--Things to note when using react:
@@ -15,11 +16,12 @@
     * class is a reserved keyword in JavaScript
     * should use className when naming a div tag
   -->
+
 <body>
-  
+
     <div id="app"></div>
-  
-  <script type="text/babel">
+
+    <script type="text/babel">
     class App extends React.Component {
       render() {
         return (
@@ -34,4 +36,5 @@
     ReactDOM.render(<App />, document.getElementById('app'))
 </script>
 </body>
+
 </html>
