@@ -17,17 +17,27 @@
     * should use className when naming a div tag
   -->
 
+<!--To change the state of dynamic content of the example below:
+    * state has been defined within the component as an JS object with property values
+    * we use the component to output the template by the use of the 'this' keyword
+    * along with the state and the object property name to
+    * print to the browser -->
+
 <body>
 
     <div id="app"></div>
 
     <script type="text/babel">
     class App extends React.Component {
+        state = {
+            name: 'Cat',
+            age: 31
+        }
       render() {
         return (
           <div className="app-content">
             <h1>Hey, Cat!</h1>
-            <p>{Math.random() * 10}</p>
+            <p>My name is: { this.state.name } and I am { this.state.age } </p>
           </div>
         )
       }
