@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Basics</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!--added babel cdn for output to the browser version 7-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<!-- * In this example, we want whatever text input into the form then submitted
+     * via the button to print to the h1 tag on browser.
+     * Once the form has been completed, we want to add a function within the input
+     * using the onChange event so the event can fire.
+     * Again, we use this.setState() and use .target.value to update the name value in the example
+     * However, we want to prevent the default action of using submit only to refresh
+     * the browser when inputting text to the form. We also want to use the enter key so
+     * we use preventDefault() within the handleSubmit function linked to the form,
+     * which now allow a user to hit the enter key to also submit the input (see browser console for input message)
+
+
+-->
+
+
+<body>
+
+    <div id="app2"></div>
+
+    <script type="text/babel">
+    class App2 extends React.Component {
+        state = {
+            name: 'Cat',
+            age: 31
+        }
+
+        handleChange = (text) => {
+            this.setState({
+                name: text.target.value
+            });
+        }
+
+        handleSubmit = (text) => {
+            text.preventDefault();
+            console.log('form submitted', this.state.name)
+        }
+
+
+      render() {
+        return (
+          <div className="app-content2">
+            <h1>My name is { this.state.name }</h1>
+            <form onSubmit={this.handleSubmit}>
+              <input type="text"  onChange={this.handleChange}/>
+              <button>Submit</button>
+            </form>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App2 />, document.getElementById('app2'))
+</script>
+</body>
+
+</html>
