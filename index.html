@@ -32,6 +32,19 @@
     * using event listener properties like onClick and onMouseOver
 -->
 
+<!-- * The 'this' keyword inside a function is determined by where the function is called not by
+     * where the function sits.
+     * The example below in handleClick function, when trying to call the function in relation
+     * to the DOM event onClick, the console will print undefined value
+     * The only approach around this is by using arrow functions,
+     * as it takes the value of the 'this' keyword and passes it through the function.
+-->  
+   
+<!-- * If we want to change the state and its object property values for instance like the example below
+     * we use the setState() function then reassign the property values within
+     * which should re-render with an updated state.
+     * The example below should now print to the browser once the button is clicked. 
+-->
 <body>
 
     <div id="app"></div>
@@ -43,14 +56,21 @@
             age: 31
         }
 
-        handleClick(e) {
-            console.log(e.target);
+        handleClick = (e) => {
+        // console.log(e.target);
+        //console.log(this.state);
+
+        this.setState({
+            name: 'Christian',
+            age: 26
+        });
         }
-        handleMouse(e) {
+
+        handleMouse = (e) => {
             console.log(e);
         }
 
-        handleCopy(e) {
+        handleCopy = (e) => {
             console.log('Try being original for once!');
         }
       render() {
